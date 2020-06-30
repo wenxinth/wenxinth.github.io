@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>ettercap局域网内DNS流量劫持</title>
+      <link href="/2020/06/29/DNS%E6%B5%81%E9%87%8F%E5%8A%AB%E6%8C%81/"/>
+      <url>/2020/06/29/DNS%E6%B5%81%E9%87%8F%E5%8A%AB%E6%8C%81/</url>
+      
+        <content type="html"><![CDATA[<h3 id="局域网内DNS流量劫持"><a href="#局域网内DNS流量劫持" class="headerlink" title="局域网内DNS流量劫持"></a>局域网内DNS流量劫持</h3><blockquote><p>原理</p></blockquote><ul><li>DNS是什么：Domain Name System (域名系统 简称：DNS)</li><li>DNS欺骗是什么：攻击者(黑客)冒充域名服务器进行欺骗的一种行为 。</li><li>DNS原理原理：如果可以冒充域名服务器，然后把查询的IP地址设为攻击者的IP地 址，这样的话，用户上网就只能看到攻击者的主页，而不是用户想要取得的网站的主页了，这就是DNS欺骗的基本原理。DNS欺骗其实并不是真的“黑掉”了对方的网站，而是冒名顶替、招摇撞骗罢了。</li></ul><blockquote><p>环境</p></blockquote><ul><li>受害者ip:192.168.102.128</li><li>主机ip:192.168.102.129</li><li>网关：192.168.102.2</li></ul><blockquote><p>演示</p></blockquote><p><strong>打开ettercap.dns文件并修改</strong><br>在对应的位置添加标识和ip地址<br>然后保存。</p><p><img src="/2020/06/29/DNS%E6%B5%81%E9%87%8F%E5%8A%AB%E6%8C%81/k15.PNG" alt="avatar"><br><strong>再来编辑index.html文件</strong><br>改成你的定义页面<br><img src="/2020/06/29/DNS%E6%B5%81%E9%87%8F%E5%8A%AB%E6%8C%81/k2.PNG" alt="avatar"><br><strong>在终端输入/etc/init.d/apache2 start开启你的apache2 服务，然后输入ettercap -G进去ettercap图形化界面</strong><br><img src="/2020/06/29/DNS%E6%B5%81%E9%87%8F%E5%8A%AB%E6%8C%81/k3.PNG" alt="Alt text"></p><p><strong>点击sniff选择网卡Unified sniffing配置</strong><br><img src="/2020/06/29/DNS%E6%B5%81%E9%87%8F%E5%8A%AB%E6%8C%81/k4.PNG" alt="avatar"></p><p><strong>网卡选择eth0</strong><br><img src="/2020/06/29/DNS%E6%B5%81%E9%87%8F%E5%8A%AB%E6%8C%81/k5.PNG" alt="avatar"></p><p><strong>扫描网关下的所有计算机主机</strong><br><img src="/2020/06/29/DNS%E6%B5%81%E9%87%8F%E5%8A%AB%E6%8C%81/k7.PNG" alt="avatar"></p><p><strong>继续选择Host list列出来的主机</strong><br><img src="/2020/06/29/DNS%E6%B5%81%E9%87%8F%E5%8A%AB%E6%8C%81/k6.PNG" alt="avatar"></p><p><strong>将网关ip添加到Add to Target1，将目标ip添加到Add to Target2</strong><br><img src="/2020/06/29/DNS%E6%B5%81%E9%87%8F%E5%8A%AB%E6%8C%81/k16.PNG" alt="avatar"></p><p><strong>配置好后选择Mitm点击ARP poisioning</strong><br><img src="/2020/06/29/DNS%E6%B5%81%E9%87%8F%E5%8A%AB%E6%8C%81/k10.PNG" alt="avatar"></p><p><strong>然后勾上第一个，确定。</strong><br><img src="/2020/06/29/DNS%E6%B5%81%E9%87%8F%E5%8A%AB%E6%8C%81/k11.PNG" alt="avatar"></p><p><strong>配置插件，点击Plugins,选择第一个Manage the plugins</strong><br><img src="/2020/06/29/DNS%E6%B5%81%E9%87%8F%E5%8A%AB%E6%8C%81/k12.PNG" alt="avatar"></p><p><strong>双击dns_spoof</strong><br><img src="/2020/06/29/DNS%E6%B5%81%E9%87%8F%E5%8A%AB%E6%8C%81/k13.PNG" alt="avatar"></p><p><strong>选择Start,然后点击Start sniffing即可，现在就可以开始工作了</strong><br><img src="/2020/06/29/DNS%E6%B5%81%E9%87%8F%E5%8A%AB%E6%8C%81/k14.PNG" alt="avatar"></p><p><strong>不出意外的话，目标电脑进去网站后应该是这样的</strong><br><img src="/2020/06/29/DNS%E6%B5%81%E9%87%8F%E5%8A%AB%E6%8C%81/k17.PNG" alt></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>ettercap局域网内DNS流量劫持</title>
+      <link href="/2020/06/29/ettercap%E5%B1%80%E5%9F%9F%E7%BD%91%E5%86%85DNS%E6%B5%81%E9%87%8F%E5%8A%AB%E6%8C%81/"/>
+      <url>/2020/06/29/ettercap%E5%B1%80%E5%9F%9F%E7%BD%91%E5%86%85DNS%E6%B5%81%E9%87%8F%E5%8A%AB%E6%8C%81/</url>
+      
+        <content type="html"><![CDATA[<h3 id="局域网内DNS流量劫持"><a href="#局域网内DNS流量劫持" class="headerlink" title="局域网内DNS流量劫持"></a>局域网内DNS流量劫持</h3><blockquote><p>原理</p></blockquote><ul><li>DNS是什么：Domain Name System (域名系统 简称：DNS)</li><li>DNS欺骗是什么：攻击者(黑客)冒充域名服务器进行欺骗的一种行为 。</li><li>DNS原理原理：如果可以冒充域名服务器，然后把查询的IP地址设为攻击者的IP地 址，这样的话，用户上网就只能看到攻击者的主页，而不是用户想要取得的网站的主页了，这就是DNS欺骗的基本原理。DNS欺骗其实并不是真的“黑掉”了对方的网站，而是冒名顶替、招摇撞骗罢了。</li></ul><blockquote><p>环境</p></blockquote><ul><li>受害者ip:192.168.102.128</li><li>主机ip:192.168.102.129</li><li>网关：192.168.102.2</li></ul><blockquote><p>演示</p></blockquote><p><strong>打开ettercap.dns文件并修改</strong><br>在对应的位置添加标识和ip地址<br>然后保存。</p><p><img src="happy/q.jpg" alt="刘诗诗"><br><img src="http://note.youdao.com/noteshare?id=fb2cdfc1e10de3f2b9b1c6833ce736f0&sub=D14A39ED141D4DF5B240A517B30D9263" alt="avatar"></p><p><strong>再来编辑index.html文件</strong><br>改成你的定义页面<br><img src="http://note.youdao.com/noteshare?id=1d125b4f296c20edae660323a5e00ea2&sub=43759F3831F7438EA7AB04ED1CD46CDF" alt="avatar"><br><strong>在终端输入/etc/init.d/apache2 start开启你的apache2 服务，然后输入ettercap -G进去ettercap图形化界面</strong><br><img src="http://note.youdao.com/noteshare?id=7cd122191e5e2c43ea0e8230a35a87b5&sub=13D59646C05341D2BF8FF067A34B0277" alt="Alt text" title="ahhh"><br><strong>点击sniff选择网卡Unified sniffing配置</strong><br><img src="http://note.youdao.com/noteshare?id=b35335b5887ec3792368c5f5a9e79121&sub=77F6D83196854EF3B5A53FC4681C9E35" alt="avatar" title="ahhh"><br><strong>网卡选择eth0</strong><br><img src="http://note.youdao.com/noteshare?id=f1e2e2014c6d5877f9d1a6fff00a2bf9&sub=C516CD2596414E8A8B001AA6107F3C2A" alt="avatar" title="ahhh"><br><strong>扫描网关下的所有计算机主机</strong><br><img src="http://note.youdao.com/noteshare?id=589178032ecceca84ced20127fecb545&sub=A9D02F01C0814C389366160614739CB1" alt="avatar" title="ahhh"><br><strong>继续选择Host list列出来的主机</strong><br><img src="http://note.youdao.com/noteshare?id=0452bca57c492255dceff9d3d3084108&sub=3BED698021BF45129B282A19C8437026" alt="avatar" title="ahhh"><br><strong>将网关ip添加到Add to Target1，将目标ip添加到Add to Target2</strong><br><img src="http://note.youdao.com/noteshare?id=bc5dff56dfafa77324449e30499c02c9&sub=BF62D9FF250E420CAAA2F95E7A1715CB" alt="avatar" title="ahhh"><br><strong>配置好后选择Mitm点击ARP poisioning</strong><br><img src="http://note.youdao.com/noteshare?id=2a4007e05f88e5c991fac7e82e82e04d&sub=E6F042080B1E4163A1ED79A29F7A1B3A" alt="avatar" title="ahhh"><br><strong>然后勾上第一个，确定。</strong><br><img src="http://note.youdao.com/noteshare?id=84b722d6df3a8977987c347639698689&sub=FC376BE6E2984CDAAEBE643F100D83E8" alt="avatar" title="ahhh"><br><strong>配置插件，点击Plugins,选择第一个Manage the plugins</strong><br><img src="http://note.youdao.com/noteshare?id=21c03747053bb9ae61206c30f7877df4&sub=3B3CE881FBF946CF8D2A49EB27EFA269" alt="avatar" title="ahhh"><br><strong>双击dns_spoof</strong><br><img src="http://note.youdao.com/noteshare?id=2b4592a1efc089d641aa1f80a0973856&sub=2DE59D29FA784C6699EF64135E470A1B" alt="avatar" title="ahhh"><br><strong>选择Start,然后点击Start sniffing即可，现在就可以开始工作了</strong><br><img src="http://note.youdao.com/noteshare?id=d5ac59ca1c639082cbb476a6504d47ae&sub=C906FF94DEF542FCB891F6ED30A0929A" alt="avatar" title="ahhh"><br><strong>不出意外的话，目标电脑进去网站后应该是这样的</strong><br><img src="http://note.youdao.com/noteshare?id=0d233df1dad80025fc2eb6e999ee45bd&sub=BE3DBF7571494280A23EA6FFB61C0AFA" alt="" title="ahhh"></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>first blog</title>
+      <link href="/2020/04/20/first%20blog/"/>
+      <url>/2020/04/20/first%20blog/</url>
+      
+        <content type="html"><![CDATA[<h3 id="first-blog"><a href="#first-blog" class="headerlink" title="first blog"></a>first blog</h3><blockquote><p>尼古拉斯说过，每一个看我博客的人都是最帅最漂亮的！</p></blockquote><p><img src="happy/q.jpg" alt="刘诗诗"></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="/2020/04/18/hello-world/"/>
+      <url>/2020/04/18/hello-world/</url>
+      
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+  
+  
+</search>
